@@ -1,7 +1,8 @@
 <h2 id="title">Ember-CLI Modern Select</h2>
 
 {{ember-modern-select
-    content=model
+    disabled=disabledControl
+    content=attrs.models
     selection=selectedModel
     optionValuePath="slug"
     optionLabelPath="title"

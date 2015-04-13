@@ -17,7 +17,7 @@ export default Ember.Route.extend({
 
   models: Ember.computed({
     get(){
-      return [
+      return Ember.A([
         Ember.Object.create({ id: 1, title: 'Solar Titan 130', slug: 'Solar-Titan-130', turbineDrawing: 'assets/images/turbines/Solar-Titan-130.svg', totalJumperCost: 500, tlmCost: 15000, tlmLaborDays: 3, tlmLaborPeople: 2, type: 'gas' }),
         Ember.Object.create({ id: 2, title: 'Rolls Royce Trent 60', slug: 'Rolls-Royce-Trent-60', turbineDrawing: 'assets/images/turbines/Rolls-Royce-Trent-60.svg', totalJumperCost: 4500, tlmCost: 23000, tlmLaborDays: 5, tlmLaborPeople: 2, type: 'gas' }),
         Ember.Object.create({ id: 3, title: 'GE LM2500', slug: 'GM-LM2500', turbineDrawing: 'assets/images/turbines/GE-LM2500.svg', totalJumperCost: 5000, tlmCost: 45000, tlmLaborDays: 8, tlmLaborPeople: 3, type: 'gas' }),
@@ -38,14 +38,14 @@ export default Ember.Route.extend({
         Ember.Object.create({ id: 18, title: 'GE D11', slug: 'GE-D11', turbineDrawing: '', totalJumperCost: 15000, tlmCost: 41500, tlmLaborDays: 11, tlmLaborPeople: 3, type: 'steam' }),
         Ember.Object.create({ id: 19, title: 'Alstom STF15C', slug: 'Alstom-STF15C', turbineDrawing: '', totalJumperCost: 0, tlmCost: 34500, tlmLaborDays: 9, tlmLaborPeople: 3, type: 'steam' }),
         Ember.Object.create({ id: 20, title: 'Other(s) (steam)', slug: 'Others', turbineDrawing: '', totalJumperCost: 0, tlmCost: -1, tlmLaborDays: -1, tlmLaborPeople: 0, type: 'steam' }),
-      ];
+      ]);
     }
   }),
 
   setupController(controller, model) {
     this._super(controller, model);
 
-    controller.set('attrs.model', this.get('models'));
+    controller.set('attrs.models', this.get('models'));
     controller.set('attrs.modelYears', this.get('modelYears'));
   }
 });
