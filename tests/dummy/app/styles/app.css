@@ -1,0 +1,67 @@
+.modern-select-input {
+  width: 100%;
+  padding: 7px;
+  background-color: grey;
+  position: relative;
+  cursor: pointer;
+}
+.modern-select-input:after {
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 15px;
+  margin-top: -3px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 5px 5px 0 5px;
+  border-color: black transparent transparent transparent;
+}
+.modern-select-input > input {
+  width: 100%;
+  border: 0;
+  color: black;
+  font-weight: bold;
+  background-color: transparent;
+  cursor: pointer;
+  display: inline-block !important;
+  padding: 0 !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  max-width: 100% !important;
+  margin: 0 1px !important;
+  text-indent: 0 !important;
+  border: 0 none !important;
+  background: none !important;
+  line-height: inherit !important;
+  -webkit-user-select: auto !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+}
+.modern-select-input > input:focus {
+  outline: none !important;
+}
+.modern-select-input > input::-webkit-input-placeholder {
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+.modern-select-input > input:-moz-placeholder {
+  /* Firefox 18- */
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+.modern-select-input > input::-moz-placeholder {
+  /* Firefox 19+ */
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+.modern-select-input > input:-ms-input-placeholder {
+  color: black;
+  font-weight: bold;
+  text-align: center;
+}
+
