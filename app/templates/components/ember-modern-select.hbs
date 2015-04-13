@@ -1,0 +1,10 @@
+<div class="modern-select">
+  <div class="modern-select-input">
+    <input type="text" autocomplete="off" tabindex="0" placeholder={{prompt}}>
+  </div>
+  <div class="modern-select-dropdown">
+    {{#each content as |option|}}
+    <div data-value="" data-selectable class="option">{{option._labelPath}}</div>
+    {{/each}}
+  </div>
+</div>
