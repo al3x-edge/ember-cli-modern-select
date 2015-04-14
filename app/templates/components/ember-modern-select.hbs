@@ -3,8 +3,8 @@
     <input type="text" autocomplete="off" tabindex="0" placeholder={{prompt}}>
   </div>
   <div class="modern-select-dropdown">
-    {{#each content as |option|}}
-    <div data-value="" data-selectable class="option">{{option._labelPath}}</div>
+    {{#each extendedContent as |option|}}
+    <div {{action 'itemClicked'}} data-value="{{option._value}}" data-selectable class="option">{{option._label}}</div>
     {{/each}}
   </div>
 </div>

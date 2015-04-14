@@ -4,6 +4,8 @@ export default Ember.Component.extend({
   classNames: ['ember-modern-select'],
   classNameBindings: ['disabled', 'loading'],
 
+  data: null,
+
   // Alias placeholder to prompt -- compatible with Ember.Select syntax.
   placeholder: Ember.computed.alias('prompt'),
 
@@ -46,7 +48,7 @@ export default Ember.Component.extend({
     }
   }),
 
-  didInsertElement: function(){
+  didInsertElement(){
     // Cache wrapper to local variable
     this._modernSelect = this.$().find('.modern-select');
 
@@ -56,7 +58,7 @@ export default Ember.Component.extend({
     // this._contentDidChange();
   },
 
-  _displayDropdown: function(){
+  _displayDropdown(){
     this._modernSelect.toggleClass('opened');
   },
 
@@ -75,9 +77,28 @@ export default Ember.Component.extend({
 
   }, 'disabled'),
 
+  extendedContent: Ember.computed('content', {
+    get(){
+      var content = this.get('content');
+      var contentExtended = content.map((item) => {
+        var extendedItem = Ember.Object.create(item);
+        extendedItem.set('_label', item.get(this.get('_labelPath')));
+        extendedItem.set('_value', item.get(this.get('_valuePath')));
+        return extendedItem;
+      });
+      return Ember.A(contentExtended);
+    }
+  }),
+
   actions:{
-    wrapClicked: function(){
-      this._displayDropdown();
+    wrapClicked(){
+      if( !this.get('disabled') ){
+        this._displayDropdown();
+      }
+    },
+    itemClicked(wat){
+      console.log(this);
+      console.log(wat);
     }
   }
 });
